@@ -35,5 +35,6 @@ def merge_data_to_dict():
     
 # Showcase
 *In the showcase using "Gretimybiu_pazyma.pdf," sensitive information such as landowners' names and residential addresses has been altered to random names and addresses for privacy reasons.
+
 ![2-28-2024 (18-48-01)](https://github.com/RSCactusDev/LT-CadastreInvitationGenerator/assets/78035439/c3e914e1-9a87-46da-9619-953d46507922)
 
