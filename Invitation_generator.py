@@ -19,7 +19,7 @@ measurement_data = '2024-01-13 d. 10:00 val.'
 sudarymo_vieta = '  Vilnius'
 
 ## Data input file:
-filepath = r"C:\Users\Shark\Desktop\Gretimybiu_pazyma_1655444384562.pdf"
+filepath = r"C:\Users\Shark\Desktop\Gretimybiu_pazyma_165544438456234.pdf"
 def configure_logging():
     logger = logging.getLogger('errorlog')
     hdlr = logging.FileHandler('errors.log')
@@ -222,7 +222,7 @@ def get_neighbour_identity():
 
         ## The owner of the adjacent plot is obtained
         for name_surname in owners:
-            name_surname = re.sub(", gim. \d\d\d\d-\d\d-\d\d","",name_surname)
+            name_surname = re.sub(r", gim. \d\d\d\d-\d\d-\d\d","",name_surname)
             neighbour_identity.append(name_surname)
 
         for title in company:
@@ -336,7 +336,7 @@ def merge_data_to_dict():
     letters = {'name': '', 'gim_data': '', 'kad_nr': [],'siuntimui':'', 'neighbours_address_list': []}
     letters_ = []
     for i in range(len(to_whom)):
-        if mata_tip[i] > 1:
+        if mata_tip[i] > 0:
             letters['name'] = to_whom[i]
             for x in range(len(neighbour_identity)):
                 if to_whom[i] == neighbour_identity[x]:
@@ -365,7 +365,7 @@ def generate_letters():
     doc = DocxTemplate('Template.docx')
     today = date.today()
     mb_nr = get_document_nr()
-    path = "C:\\Users\\Shark\\Desktop\\Laisku_siuntimas\\LT-Cadastre-Invitation-Generator\\Letters\\"
+    path = "C:\\Users\\Shark\\Desktop\\Laisku_siuntimas\\Github\\LT-Cadastre-Invitation-Generator\\LT-CadastreInvitationGenerator\\Letters\\"
     if letters_ != []:
         for i in range(0,len(letters_)):
             print("Creating letter for:\n ",letters_[i]['name'])
